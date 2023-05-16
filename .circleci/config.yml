@@ -18,9 +18,8 @@ jobs:
       - run:
           name: "install php sqlite"
           command: |
+            sudo apt update
             sudo apt-get install php8.1-sqlite3
-
-      # sudo apt update
 
       - run:
           name: "Create Environment file and generate app key"
@@ -60,9 +59,9 @@ jobs:
             touch database/database.sqlite
             php artisan migrate --env=testing
 
-      # - run:
-      #     name: "Generate Passport encryption keys"
-      #     command: php artisan passport:install
+      - run:
+          name: "Generate Passport encryption keys"
+          command: php artisan passport:install
 
       # run tests with phpunit
       - run:
