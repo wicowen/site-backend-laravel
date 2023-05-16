@@ -8,16 +8,19 @@ jobs:
     steps:
       # - browser-tools/install-browser-tools
       - checkout
+
       - run:
           name: "list version"
           command: |
             php --version
             google-chrome --version
+
       - run:
           name: "install php sqlite"
           command: |
-            sudo apt update
             sudo apt-get install php8.1-sqlite3
+
+      # sudo apt update
 
       - run:
           name: "Create Environment file and generate app key"
@@ -46,17 +49,16 @@ jobs:
           name: "Generate App key"
           command: php artisan key:generate
 
-      # - run:
-      #     name: "Install sqlite"
-      #     command: |
-      #       sudo apt update
-      #       sudo apt-get install php8.1-sqlite3
+      - run:
+          name: "Install sqlite"
+          command: |
+            sudo apt-get install php8.1-sqlite3
 
-      # - run:
-      #     name: "Create database and run migration"
-      #     command: |
-      #       touch database/database.sqlite
-      #       php artisan migrate --env=testing
+      - run:
+          name: "Create database and run migration"
+          command: |
+            touch database/database.sqlite
+            php artisan migrate --env=testing
 
       # - run:
       #     name: "Generate Passport encryption keys"
