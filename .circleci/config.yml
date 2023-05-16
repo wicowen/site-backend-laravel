@@ -8,8 +8,14 @@ jobs:
     steps:
       # - browser-tools/install-browser-tools
       - checkout
-      - sudo apt update
-      - sudo apt-get install php8.1-sqlite3
+      # - run: |
+      #     php --version
+      #     node --version
+      #     java --version
+      #     google-chrome --version
+      - run: |
+          sudo apt update
+          sudo apt-get install php8.1-sqlite3
 
       - run:
           name: "Create Environment file and generate app key"
