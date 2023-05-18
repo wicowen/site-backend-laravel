@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "a1fec6d3-63c7-4efe-99a5-999342267a09",
+		"name": "api.wico.dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "130399"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "="
+				},
+				"url": {
+					"raw": "https://api.wico.dev/api/home",
+					"protocol": "https",
+					"host": [
+						"api",
+						"wico",
+						"dev"
+					],
+					"path": [
+						"api",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "wico",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "is@wico.cc",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "demoPwd123",
+							"type": "text"
+						},
+						{
+							"key": "c_password",
+							"value": "demoPwd123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.wico.dev/api/register",
+					"protocol": "https",
+					"host": [
+						"api",
+						"wico",
+						"dev"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "is@wico.cc",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "demoPwd123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.wico.dev/api/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"wico",
+						"dev"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.wico.dev/api/user",
+					"protocol": "https",
+					"host": [
+						"api",
+						"wico",
+						"dev"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODQ0MDQwMTcsImp0aSI6InVUQ3cvYXMyVzRaSlM4OGg5WjZIclE9PSIsImlzcyI6ImFwaS53aWNvLmRldiIsIm5iZiI6MTY4NDQwNDAxNywiZXhwIjoxNjg0NDExMjE3LCJkYXRhIjp7InVzZXJJRCI6MX19.C8TvrDHV0LNXw4Y8jTgHRz_oj5VJxrh0AYCM-0DsET55FzgUMSsY0wQEtOJK9STpEf1H1SFS4t6-w2dnB6tiZA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
