@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Exceptions\AuthenticationException;
+use Illuminate\Auth\AuthenticationException;
 use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
