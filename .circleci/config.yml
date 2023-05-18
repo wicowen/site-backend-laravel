@@ -21,16 +21,16 @@ jobs:
             sudo apt update
 
       - run:
-          name: "install php sqlite "
+          name: "Install php sqlite ext"
           command: |
             sudo apt-get install php8.1-sqlite3
 
       - run:
-          name: "Create Environment file and generate app key"
+          name: "Create environment file"
           command: |
             mv .env.testing .env
 
-      # Download and cache dependencies
+      # download and cache dependencies
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
@@ -47,27 +47,18 @@ jobs:
           paths:
             - ./vendor
 
-      # prepare the database
       - run:
           name: "Generate App key"
           command: php artisan key:generate
 
-      # - run:
-      #     name: "Install sqlite"
-      #     command: |
-      #       sudo apt-get install php8.1-sqlite3
-
+      # prepare the database
       - run:
           name: "Create database and run migration"
           command: |
             touch database/database.sqlite
             php artisan migrate --env=testing
 
-      # - run:
-      #     name: "Generate Passport encryption keys"
-      #     command: php artisan passport:install
-
-      # run tests with phpunit
+      # run phpunit tests
       - run:
           name: "Run Tests"
           command: php artisan test

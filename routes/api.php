@@ -41,9 +41,7 @@ Route::middleware('jwt.auth')->get('/user', function (Request $request) {
     return response()->json(['data' => $user], 200);
 });
 
-
 Route::get('/home', [HomeController::class, 'home']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-
