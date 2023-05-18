@@ -16,9 +16,13 @@ jobs:
             google-chrome --version
 
       - run:
-          name: "install php sqlite"
+          name: "Prepare Environment"
           command: |
             sudo apt update
+
+      - run:
+          name: "install php sqlite "
+          command: |
             sudo apt-get install php8.1-sqlite3
 
       - run:
