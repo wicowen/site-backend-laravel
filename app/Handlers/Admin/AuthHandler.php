@@ -17,27 +17,27 @@ class AuthHandler
         $secretKey  = env('JWT_KEY');
         $tokenId    = base64_encode(random_bytes(16));
         $issuedAt   = new DateTimeImmutable();
-        $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();     
-        $serverName = "your.server.name";
-        $userID   = $user->id;                                    
+        $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();
+        $serverName = "api.wico.dev";
+        $userID   = $user->id;
 
         // Create the token as an array
         $data = [
-            'iat'  => $issuedAt->getTimestamp(),    
-            'jti'  => $tokenId,                     
-            'iss'  => $serverName,                  
-            'nbf'  => $issuedAt->getTimestamp(),    
-            'exp'  => $expire,                      
-            'data' => [                             
-                'userID' => $userID,            
+            'iat'  => $issuedAt->getTimestamp(),
+            'jti'  => $tokenId,
+            'iss'  => $serverName,
+            'nbf'  => $issuedAt->getTimestamp(),
+            'exp'  => $expire,
+            'data' => [
+                'userID' => $userID,
             ]
         ];
 
-    // Encode the array to a JWT string.
+        // Encode the array to a JWT string.
         $token = JWT::encode(
-            $data,      
-            $secretKey, 
-            'HS512'     
+            $data,
+            $secretKey,
+            'HS512'
         );
         return $token;
     }
