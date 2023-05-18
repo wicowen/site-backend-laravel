@@ -17,7 +17,7 @@ class AuthHandler
         $secretKey  = env('JWT_KEY');
         $tokenId    = base64_encode(random_bytes(16));
         $issuedAt   = new DateTimeImmutable();
-        $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();
+        $expire     = $issuedAt->modify('+120 minutes')->getTimestamp();
         $serverName = "api.wico.dev";
         $userID   = $user->id;
 
