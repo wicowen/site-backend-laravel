@@ -1,10 +1,33 @@
 version: 2.1
+
+# circle ci orb's doc
+# https://circleci.com/developer/orbs?filterBy=popular
 orbs:
   browser-tools: circleci/browser-tools@1.4.1
+
+workflows:
+  prod_backend_deploy:
+    jobs:
+      - prod_deploy:
+          name: "prod_backend_site"
+          app: "site"
+          deploy_version: "202305191456"
+          filters:
+            branches:
+              only: main
+
 jobs:
-  build:
+  prod_backend_deploy:
     docker:
       - image: cimg/php:8.1.19-browsers
+    parameters:
+      app:
+        type: string
+      deploy_version:
+        type: string
+    # environment:
+    #   BUILD_PATH: dist
+
     steps:
       # - browser-tools/install-browser-tools
       - checkout
@@ -34,16 +57,16 @@ jobs:
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
+            - composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-{{ checksum "package-lock.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-
 
       - run:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
 
       - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-{{ checksum "package-lock.json" }}
           paths:
             - ./vendor
 
