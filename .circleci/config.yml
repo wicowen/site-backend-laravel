@@ -6,9 +6,9 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 workflows:
-  prod_backend_deploy:
+  backend_deploy:
     jobs:
-      - prod_deploy:
+      - prod_backend_deploy:
           name: "prod_backend_site"
           app: "site"
           deploy_version: "202305191456"
