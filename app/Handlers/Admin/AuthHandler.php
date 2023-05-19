@@ -33,7 +33,7 @@ class AuthHandler
             ]
         ];
 
-        // Encode the array to a JWT string.
+        // Encode the array to a JWT string
         $token = JWT::encode(
             $data,
             $secretKey,
