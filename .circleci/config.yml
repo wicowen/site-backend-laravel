@@ -57,16 +57,16 @@ jobs:
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
-            - composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-{{ checksum "package-lock.json" }}
+            - composer-dependencies-<<parameters.deploy_version>>-{{ .Branch }}-<<parameters.app>>-{{ checksum "composer.json" }}
             # fallback to using the latest cache if no exact match is found
-            - composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-
+            - composer-dependencies-<<parameters.deploy_version>>-{{ .Branch }}-<<parameters.app>>-
 
       - run:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
 
       - save_cache:
-          key: composer-dependencies-v202305191456-{{ .Branch }}-<<parameters.app>>-{{ checksum "package-lock.json" }}
+          key: composer-dependencies-<<parameters.deploy_version>>-{{ .Branch }}-<<parameters.app>>-{{ checksum "composer.json" }}
           paths:
             - ./vendor
 
