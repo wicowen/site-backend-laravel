@@ -52,7 +52,7 @@ $app->singleton(
 |
 */
 
-
+// workaround: CORS
 header('Access-Control-Allow-Origin: https://vue.wico.dev');
 header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Headers: *');
