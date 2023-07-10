@@ -114,12 +114,9 @@
 									]
 								},
 								"url": {
-									"raw": "https://api.wico.dev/v1/register",
-									"protocol": "https",
+									"raw": "{{endpoint}}/v1/register",
 									"host": [
-										"api",
-										"wico",
-										"dev"
+										"{{endpoint}}"
 									],
 									"path": [
 										"v1",
@@ -168,12 +165,9 @@
 									]
 								},
 								"url": {
-									"raw": "https://api.wico.dev/v1/login",
-									"protocol": "https",
+									"raw": "{{endpoint}}/v1/login",
 									"host": [
-										"api",
-										"wico",
-										"dev"
+										"{{endpoint}}"
 									],
 									"path": [
 										"v1",
@@ -181,7 +175,79 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "is@wico.cc",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "demoPwd123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endpoint}}/v1/login",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"v1",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.18.0 (Ubuntu)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 29 May 2023 05:53:19 GMT"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"wico\",\n            \"email\": \"is@wico.cc\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2023-05-19T07:36:01.000000Z\",\n            \"updated_at\": \"2023-05-19T07:36:01.000000Z\"\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2ODUzMzk1OTksImp0aSI6IkN0U1ltdDJiNXM1dEZVZ2l4WWlrYVE9PSIsImlzcyI6ImFwaS53aWNvLmRldiIsIm5iZiI6MTY4NTMzOTU5OSwiZXhwIjoxNjg1MzQ2Nzk5LCJkYXRhIjp7InVzZXJJRCI6MX19.opj8ImEGKufm6GbJsJvlsjTDZN7KINk8QzpGg9z41lghuYap6E1WQdsgzxv867Og5A21_HkOkCw4zHXHfgkXgg\"\n    },\n    \"message\": \"Logged In\"\n}"
+								}
+							]
 						},
 						{
 							"name": "list user",
